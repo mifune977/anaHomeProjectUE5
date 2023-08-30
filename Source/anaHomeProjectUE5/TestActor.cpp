@@ -29,6 +29,13 @@ void ATestActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	MovePlatform(DeltaTime);
+	RotatePlatform(DeltaTime);
+
+}
+
+void ATestActor::MovePlatform(float DeltaTime)
+{
 	//Move platform forwards
 		//get current location
 	FVector CurrentLocation = GetActorLocation();
@@ -52,6 +59,9 @@ void ATestActor::Tick(float DeltaTime)
 		PlatformVelocity = -PlatformVelocity;
 		
 	}
-
 }
-
+void ATestActor::RotatePlatform(float DeltaTIme)
+{
+	FString Name = GetName();
+	UE_LOG(LogTemp, Display, TEXT("%s rotating..."), *GetName());
+}
