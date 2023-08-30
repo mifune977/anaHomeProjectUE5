@@ -18,7 +18,9 @@ void ATestActor::BeginPlay()
 
 	StartLocation = GetActorLocation();
 
-	UE_LOG(LogTemp, Display, TEXT("Configured Moved Distance: %f"), MoveDistance);	
+	FString Name =  GetName();
+
+	UE_LOG(LogTemp, Display, TEXT("Begin Play: %s"), *Name);
 
 }
 
@@ -42,7 +44,8 @@ void ATestActor::Tick(float DeltaTime)
 	if (DistancedMoved > MoveDistance)
 	{
 		float OverShoot = DistancedMoved - MoveDistance;
-		UE_LOG(LogTemp, Display, TEXT("Platform OverShot by: %f"), OverShoot);
+		FString Name =  GetName();
+		UE_LOG(LogTemp, Display, TEXT("%s Platform OverShot by: %f"), *Name,  OverShoot);
 		FVector MoveDirection = PlatformVelocity.GetSafeNormal();
 		StartLocation = StartLocation  + MoveDirection * MoveDistance;
 		SetActorLocation(StartLocation); 
