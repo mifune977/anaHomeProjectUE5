@@ -52,9 +52,9 @@ void ATestActor::MovePlatform(float DeltaTime)
 	}
 }
 
-void ATestActor::RotatePlatform(float DeltaTIme)
+void ATestActor::RotatePlatform(float DeltaTime)
 {
-	UE_LOG(LogTemp, Display, TEXT("%s rotating..."), *GetName());
+	AddActorLocalRotation(RotationVelocity * DeltaTime);
 }
 
 bool ATestActor::ShouldPlatformReturn() const
